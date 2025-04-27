@@ -62,7 +62,7 @@ const OrderDetailsPage = () => {
   const fetchOrder = async () => {
     try {
       setLoading(true);
-      const res = await axios.get(`/api/orders/${id}`);
+      const res = await axios.get(`https://veggio.onrender.com/api/orders/${id}`);
       setOrder(res.data);
       setError(null);
     } catch (err) {
@@ -76,7 +76,7 @@ const OrderDetailsPage = () => {
   const handleCancelOrder = async () => {
     try {
       setSubmitting(true);
-      await axios.put(`/api/orders/${id}/cancel`);
+      await axios.put(`https://veggio.onrender.com/api/orders/${id}/cancel`);
       fetchOrder(); // Refresh order data
       setCancelDialogOpen(false);
     } catch (err) {
@@ -90,7 +90,7 @@ const OrderDetailsPage = () => {
   const handleSubmitFeedback = async () => {
     try {
       setSubmitting(true);
-      await axios.put(`/api/orders/${id}/feedback`, { rating, feedback });
+      await axios.put(`https://veggio.onrender.com/api/orders/${id}/feedback`, { rating, feedback });
       fetchOrder(); // Refresh order data
       setFeedbackDialogOpen(false);
     } catch (err) {

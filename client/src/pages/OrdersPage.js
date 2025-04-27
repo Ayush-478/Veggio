@@ -86,7 +86,7 @@ const OrdersPage = () => {
   const fetchOrders = async () => {
     try {
       setLoading(true);
-      const res = await axios.get('/api/orders');
+      const res = await axios.get('https://veggio.onrender.com/api/orders');
       setOrders(res.data);
       setError(null);
     } catch (err) {

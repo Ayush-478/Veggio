@@ -16,7 +16,7 @@ export const AuthProvider = ({ children }) => {
       if (token) {
         setAuthToken(token);
         try {
-          const res = await axios.get('/api/auth/profile');
+          const res = await axios.get('https://veggio.onrender.com/api/auth/profile');
           setUser(res.data);
           setIsAuthenticated(true);
         } catch (err) {
@@ -36,7 +36,7 @@ export const AuthProvider = ({ children }) => {
   // Register user
   const register = async (formData) => {
     try {
-      const res = await axios.post('/api/auth/register', formData);
+      const res = await axios.post('https://veggio.onrender.com/api/auth/register', formData);
       localStorage.setItem('token', res.data.token);
       setToken(res.data.token);
       setUser(res.data);
@@ -52,7 +52,7 @@ export const AuthProvider = ({ children }) => {
   // Login user
   const login = async (formData) => {
     try {
-      const res = await axios.post('/api/auth/login', formData);
+      const res = await axios.post('https://veggio.onrender.com/api/auth/login', formData);
       localStorage.setItem('token', res.data.token);
       setToken(res.data.token);
       setUser(res.data);
@@ -77,7 +77,7 @@ export const AuthProvider = ({ children }) => {
   // Update user profile
   const updateProfile = async (formData) => {
     try {
-      const res = await axios.put('/api/auth/profile', formData);
+      const res = await axios.put('https://veggio.onrender.com/api/auth/profile', formData);
       setUser(res.data);
       setError(null);
       return res.data;

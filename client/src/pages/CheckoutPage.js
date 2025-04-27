@@ -144,7 +144,7 @@ const CheckoutPage = () => {
     
     try {
       // Submit order to API
-      const response = await axios.post('/api/orders', orderData);
+      const response = await axios.post('https://veggio.onrender.com/api/orders', orderData);
       
       // Clear cart after successful order
       await clearCart();

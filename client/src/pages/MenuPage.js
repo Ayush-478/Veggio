@@ -55,7 +55,7 @@ const MenuPage = () => {
         if (filters.maxPrice) queryParams.append('maxPrice', filters.maxPrice);
         if (filters.sort) queryParams.append('sort', filters.sort);
         
-        const res = await axios.get(`/api/food?${queryParams.toString()}`);
+        const res = await axios.get(`https://veggio.onrender.com/api/food?${queryParams.toString()}`);
         setFoodItems(res.data);
         setError(null);
       } catch (err) {

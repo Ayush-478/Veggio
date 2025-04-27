@@ -66,10 +66,10 @@ const CalorieTrackerPage = () => {
       setLoading(true);
       
       // Fetch calorie summary
-      const summaryRes = await axios.get('/api/users/calorie-tracker/summary');
+      const summaryRes = await axios.get('https://veggio.onrender.com/api/users/calorie-tracker/summary');
       
       // Fetch calorie range data
-      const rangeRes = await axios.get(`/api/users/calorie-tracker/range?startDate=${dateRange.startDate}&endDate=${dateRange.endDate}`);
+      const rangeRes = await axios.get(`https://veggio.onrender.com/api/users/calorie-tracker/range?startDate=${dateRange.startDate}&endDate=${dateRange.endDate}`);
       
       setCalorieData({
         summary: summaryRes.data,

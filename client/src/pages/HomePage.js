@@ -30,7 +30,7 @@ const HomePage = () => {
   useEffect(() => {
     const fetchPopularItems = async () => {
       try {
-        const res = await axios.get('/api/food?sort=popular&limit=4');
+        const res = await axios.get('https://veggio.onrender.com/api/food?sort=popular&limit=4');
         setPopularItems(res.data.slice(0, 4)); // Ensure we only get 4 items
       } catch (error) {
         console.error('Error fetching popular items:', error);

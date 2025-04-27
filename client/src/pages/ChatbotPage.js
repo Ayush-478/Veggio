@@ -76,7 +76,7 @@ const ChatbotPage = () => {
   const fetchChatHistory = async () => {
     try {
       setLoading(true);
-      const res = await axios.get('/api/chatbot/history');
+      const res = await axios.get('https://veggio.onrender.com/api/chatbot/history');
       
       if (res.data && res.data.length > 0) {
         setMessages(res.data);
@@ -128,7 +128,7 @@ const ChatbotPage = () => {
     setSending(true);
     
     try {
-      const res = await axios.post('/api/chatbot/message', {
+      const res = await axios.post('https://veggio.onrender.com/api/chatbot/message', {
         message: input,
         sessionId
       });
@@ -145,7 +145,7 @@ const ChatbotPage = () => {
       if (botMessage.relatedFoodItems && botMessage.relatedFoodItems.length > 0) {
         // Fetch food items details
         const foodItemsRes = await Promise.all(
-          botMessage.relatedFoodItems.map(id => axios.get(`/api/food/${id}`))
+          botMessage.relatedFoodItems.map(id => axios.get(`https://veggio.onrender.com/api/food/${id}`))
         );
         
         setFoodSuggestions(foodItemsRes.map(res => res.data));
@@ -176,7 +176,7 @@ const ChatbotPage = () => {
   
   const handleClearChat = async () => {
     try {
-      await axios.delete('/api/chatbot/history');
+      await axios.delete('https://veggio.onrender.com/api/chatbot/history');
       
       // Generate new session ID
       const newSessionId = `session_${Date.now()}_${user._id}`;

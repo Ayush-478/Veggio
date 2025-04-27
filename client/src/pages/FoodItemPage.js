@@ -62,7 +62,7 @@ const FoodItemPage = () => {
     const fetchFoodItem = async () => {
       try {
         setLoading(true);
-        const res = await axios.get(`/api/food/${id}`);
+        const res = await axios.get(`https://veggio.onrender.com/api/food/${id}`);
         setFoodItem(res.data);
         setError(null);
       } catch (err) {
@@ -129,13 +129,13 @@ const FoodItemPage = () => {
       setSubmittingReview(true);
       setReviewError(null);
       
-      await axios.post(`/api/food/${id}/reviews`, {
+      await axios.post(`https://veggio.onrender.com/api/food/${id}/reviews`, {
         rating: reviewRating,
         review: reviewText
       });
       
       // Refresh food item to show the new review
-      const res = await axios.get(`/api/food/${id}`);
+      const res = await axios.get(`https://veggio.onrender.com/api/food/${id}`);
       setFoodItem(res.data);
       
       // Reset form

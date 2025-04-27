@@ -107,14 +107,14 @@ const ExpenseTrackerPage = () => {
       setLoading(true);
       
       // Fetch expense summary
-      const summaryRes = await axios.get('/api/users/expense-tracker/summary');
+      const summaryRes = await axios.get('https://veggio.onrender.com/api/users/expense-tracker/summary');
       
       // Fetch current month's expenses
-      const currentMonthRes = await axios.get(`/api/users/expense-tracker/month/${dateRange.year}/${dateRange.month}`);
+      const currentMonthRes = await axios.get(`https://veggio.onrender.com/api/users/expense-tracker/month/${dateRange.year}/${dateRange.month}`);
       
       // Fetch expense range data
       const rangeRes = await axios.get(
-        `/api/users/expense-tracker/range?startMonth=${dateRange.startMonth}&startYear=${dateRange.startYear}&endMonth=${dateRange.endMonth}&endYear=${dateRange.endYear}`
+        `https://veggio.onrender.com/api/users/expense-tracker/range?startMonth=${dateRange.startMonth}&startYear=${dateRange.startYear}&endMonth=${dateRange.endMonth}&endYear=${dateRange.endYear}`
       );
       
       setExpenseData({
@@ -153,7 +153,7 @@ const ExpenseTrackerPage = () => {
   
   const handleUpdateBudget = async () => {
     try {
-      await axios.put('/api/users/expense-tracker/budget', {
+      await axios.put('https://veggio.onrender.com/api/users/expense-tracker/budget', {
         budget: budgetDialog.budget,
         year: dateRange.year,
         month: dateRange.month
