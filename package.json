@@ -1,0 +1,30 @@
+{
+  "name": "veggio",
+  "version": "1.0.0",
+  "description": "Healthy food ordering platform with calorie tracking and chatbot",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "server": "npx nodemon server/server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "install-all": "npm install && npm install --prefix server && npm install --prefix client",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+  },
+  "keywords": [
+    "mern",
+    "food",
+    "ordering",
+    "calorie",
+    "tracker",
+    "chatbot"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "concurrently": "^8.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
